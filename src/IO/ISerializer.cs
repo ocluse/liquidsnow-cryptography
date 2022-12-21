@@ -14,13 +14,13 @@ namespace Ocluse.LiquidSnow.Cryptography.IO
         /// </summary>
         /// <param name="data">The object to be serialized</param>
         /// <param name="destinationStream">The stream that, after calling this method, will contain the serialzied data of the object</param>
-        public Task SerializeAsync<T>(T data, Stream destinationStream);
+        public Task SerializeAsync<T>(T data, Stream destinationStream) where T : class;
 
         /// <summary>
         /// This method is called to deserialize by <see cref="CryptoFile.DeserializeAsync{T}"/> and <see cref="CryptoContainer.GetAsync{T}(string)"/> methods
         /// </summary>
         /// <param name="sourceStream">A stream that will be passed by the methods containing the data to be deserialized</param>
         /// <returns></returns>
-        public Task<T?> DeserializeAsync<T>(Stream sourceStream);
+        public Task<T?> DeserializeAsync<T>(Stream sourceStream) where T : class;
     }
 }

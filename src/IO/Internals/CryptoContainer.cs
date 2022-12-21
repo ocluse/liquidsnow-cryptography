@@ -77,7 +77,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
         #endregion
 
         #region Object IO
-        public async Task AddAsync<T>(string name, T o, bool overwrite = false)
+        public async Task AddAsync<T>(string name, T o, bool overwrite = false) where T : class
         {
             Uri uri = PackUriHelper.CreatePartUri(new Uri(name, UriKind.Relative));
 
@@ -90,7 +90,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
             await ef.SerializeAsync(o).ConfigureAwait(false);
         }
 
-        public async Task<T?> GetAsync<T>(string name)
+        public async Task<T?> GetAsync<T>(string name) where T:class
         {
             Uri uri = PackUriHelper.CreatePartUri(new Uri(name, UriKind.Relative));
 
@@ -109,13 +109,13 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
 
         public async Task AddBytesAsync(string name, byte[] data, bool overwrite = false, IProgress<double>? progress = null, CancellationToken cancellationToken = default)
         {
-            using MemoryStream msData = new(data);
+            using MemoryStream msData = new MemoryStream(data);
             await AddStreamAsync(name, msData, overwrite, progress, cancellationToken).ConfigureAwait(false);
         }
 
         public async Task<byte[]> GetBytesAsync(string name, IProgress<double>? progress = null, CancellationToken cancellationToken = default)
         {
-            using MemoryStream msData = new();
+            using MemoryStream msData = new MemoryStream();
             await GetStreamAsync(name, msData, progress, cancellationToken).ConfigureAwait(false);
             return msData.ToArray();
         }
@@ -140,7 +140,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
         {
             PackagePartCollection parts = _package.GetParts();
 
-            List<string> result = new();
+            List<string> result = new List<string>();
 
             foreach (var part in parts)
             {
@@ -163,7 +163,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
 
             int count = parts.Count();
 
-            Progress<double>? innerProgress = new() { };
+            Progress<double>? innerProgress = new Progress<double>() { };
 
             innerProgress.ProgressChanged += (o, e) =>
             {

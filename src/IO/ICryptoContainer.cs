@@ -32,7 +32,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO
         /// <param name="name">The name the object will be stored under</param>
         /// <param name="o">The object to be serialized and stored</param>
         /// <param name="overwrite">If true and the item already exists, it will be overwritten. If false and the item already exists, an <see cref="IOException"/> is thrown</param>
-        Task AddAsync<T>(string name, T o, bool overwrite = false);
+        Task AddAsync<T>(string name, T o, bool overwrite = false) where T : class;
 
         ///<inheritdoc cref="AddStreamAsync(string, Stream, bool, IProgress{double}, CancellationToken)"/>
         Task AddBytesAsync(string name, byte[] data, bool overwrite = false, IProgress<double>? progress = null, CancellationToken cancellationToken = default);
@@ -83,7 +83,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO
         /// </summary>
         /// <param name="name">The name of the item to get</param>
         /// <returns>The resultant object from the operation</returns>
-        Task<T?> GetAsync<T>(string name);
+        Task<T?> GetAsync<T>(string name) where T : class;
 
         ///<inheritdoc cref="GetStreamAsync(string, Stream, IProgress{double}, CancellationToken)"/>
         ///<returns>The data in bytes</returns>

@@ -11,6 +11,7 @@
 	  <RepositoryUrl>https://github.com/ocluse/liquidsnow-cryptography</RepositoryUrl>
 	  <PackageIcon>logo.png</PackageIcon>
 	  <Copyright>© Ocluse</Copyright>
+	  <Description>Provides utilities for performing cryptographic operations such as encryption and decryption with ease. It also adds support for generating random numbers and strings, inculding IDs</Description>
   </PropertyGroup>
 
   <ItemGroup>

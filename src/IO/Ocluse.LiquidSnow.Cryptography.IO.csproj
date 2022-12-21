@@ -7,9 +7,11 @@
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<Copyright>© Ocluse</Copyright>
 	<Version>0.0.2</Version>
+	  <PackageOutputPath>../../build/</PackageOutputPath>
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	<PackageIcon>logo.png</PackageIcon>
+	<Description>Provides utility method for performing crypotgraphic operations on files, including the creation of encrypted containers that hold multiple files.</Description>
   </PropertyGroup>
 
   <ItemGroup>

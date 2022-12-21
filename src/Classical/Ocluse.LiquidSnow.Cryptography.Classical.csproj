@@ -8,6 +8,7 @@
 	<Authors>Ocluse</Authors>
 	<Description>A package for running classical ciphers, such as Playfair, Caesar and simulation of the EnigmaMachine.</Description>
 	<Copyright>© Ocluse</Copyright>
+	  <PackageOutputPath>../../build/</PackageOutputPath>
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	<PackageTags>classical cipher;enigma machine;playfair;cipher;caesar;enigma;vigenere</PackageTags>

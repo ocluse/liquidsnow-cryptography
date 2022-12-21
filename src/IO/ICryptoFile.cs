@@ -15,7 +15,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO
         /// Decrypts and deserializes the contents of the file using the <see cref="IOSettings.Serializer"/>
         /// </summary>
         /// <returns>The resultant object from the decryption and deserialization operation</returns>
-        Task<T?> DeserializeAsync<T>();
+        Task<T?> DeserializeAsync<T>() where T : class;
 
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Ocluse.LiquidSnow.Cryptography.IO
         /// Serializes and encrypts an object, writing the resulting data to the file
         /// </summary>
         /// <param name="o">The object to be serialized and encrypted</param>
-        Task SerializeAsync<T>(T o);
+        Task SerializeAsync<T>(T o) where T : class;
 
         /// <summary>
         /// Sets the key used for the cryptographic operations

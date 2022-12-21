@@ -48,9 +48,9 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
             Array.Copy(key, 0, _key, 0, key.Length);
         }
 
-        public async Task<T?> DeserializeAsync<T>()
+        public async Task<T?> DeserializeAsync<T>() where T : class
         {
-            using MemoryStream msData = new();
+            using MemoryStream msData = new MemoryStream();
 
             await ReadAsync(msData);
             msData.Position = 0;
@@ -58,9 +58,9 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
             return await IOSettings.Serializer.DeserializeAsync<T>(msData);
         }
 
-        public async Task SerializeAsync<T>(T o)
+        public async Task SerializeAsync<T>(T o) where T : class
         {
-            using MemoryStream msData = new();
+            using MemoryStream msData = new MemoryStream();
 
             await IOSettings.Serializer.SerializeAsync(o, msData).ConfigureAwait(false);
 
@@ -85,14 +85,14 @@ namespace Ocluse.LiquidSnow.Cryptography.IO.Internals
 
         public async Task WriteBytesAsync(byte[] buffer, IProgress<double>? progress = null, CancellationToken cancellationToken = default)
         {
-            using MemoryStream msData = new(buffer);
+            using MemoryStream msData = new MemoryStream(buffer);
             await WriteAsync(msData, progress, cancellationToken);
 
         }
 
         public async Task<byte[]> ReadBytesAsync(IProgress<double>? progress = null, CancellationToken cancellationToken = default)
         {
-            using MemoryStream ms = new();
+            using MemoryStream ms = new MemoryStream();
             await ReadAsync(ms, progress, cancellationToken);
             return ms.ToArray();
         }
