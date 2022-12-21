@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Authors>Ocluse</Authors>
+	<Description>A package for running classical ciphers, such as Playfair, Caesar and simulation of the EnigmaMachine.</Description>
+	<Copyright>© Ocluse</Copyright>
+	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<PackageTags>classical cipher;enigma machine;playfair;cipher;caesar;enigma;vigenere</PackageTags>
+	<RepositoryUrl>https://github.com/ocluse/liquidsnow-cryptography</RepositoryUrl>
+	<PackageIcon>logo.png</PackageIcon>
+	<Version>0.0.2</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cryptography\Ocluse.LiquidSnow.Cryptography.csproj" />
+  </ItemGroup>
+
+</Project>

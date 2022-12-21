@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Version>0.0.2</Version>
+	  <Authors>Ocluse</Authors>
+	  <PackageOutputPath>../../build/</PackageOutputPath>
+	  <RepositoryUrl>https://github.com/ocluse/liquidsnow-cryptography</RepositoryUrl>
+	  <PackageIcon>logo.png</PackageIcon>
+	  <Copyright>© Ocluse</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ocluse.LiquidSnow.Core" Version="0.0.5" />
+  </ItemGroup>
+
+</Project>
