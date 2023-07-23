@@ -31,6 +31,7 @@ namespace Ocluse.LiquidSnow.Cryptography
                 IdKind.Guid => GenerateGuid(),
                 IdKind.Hash => GenerateHashedId(),
                 IdKind.Random => Random(length, true),
+                IdKind.Numeric => Random(length),
                 _ =>throw new NotImplementedException("Unknown ID kind")
             };
         }
