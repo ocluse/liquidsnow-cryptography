@@ -1,5 +1,6 @@
 ﻿using Ocluse.LiquidSnow.Core.Extensions;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -113,6 +114,22 @@ namespace Ocluse.LiquidSnow.Cryptography
             }
             return lowerCase ? builder.ToString().ToLower() : builder.ToString();
 
+        }
+
+        /// <summary>
+        /// Generates a random string of numbers of specified <paramref name="length"/>
+        /// </summary>
+        /// <param name="length">The number of numerics to include in the string</param>
+        /// <returns>A randomly generated string of numerics</returns>
+        public static string Random(int length)
+        {
+            // Min = 10^(n - 1)
+            // Max = 10^(n) - 1
+            // Where n = length
+            int min = Convert.ToInt32( Math.Pow( 10, ( length - 1 ) ) );
+            int max = Convert.ToInt32( Math.Pow( 10, length ) - 1 );
+
+            return _random.Next(min, max).ToString(CultureInfo.InvariantCulture);
         }
 
         #endregion
