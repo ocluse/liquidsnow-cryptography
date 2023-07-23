@@ -31,7 +31,7 @@ namespace Ocluse.LiquidSnow.Cryptography
                 IdKind.Guid => GenerateGuid(),
                 IdKind.Hash => GenerateHashedId(),
                 IdKind.Random => Random(length, true),
-                IdKind.Numeric => Random(length),
+                IdKind.Numeric => RandomNumeric(length),
                 _ =>throw new NotImplementedException("Unknown ID kind")
             };
         }
@@ -118,11 +118,11 @@ namespace Ocluse.LiquidSnow.Cryptography
         }
 
         /// <summary>
-        /// Generates a random string of numbers of specified <paramref name="length"/>
+        /// Generates a random numeric string of specified <paramref name="length"/>
         /// </summary>
         /// <param name="length">The number of numerics to include in the string</param>
-        /// <returns>A randomly generated string of numerics</returns>
-        public static string Random(int length)
+        /// <returns>A randomly generated numeric string</returns>
+        public static string RandomNumeric(int length)
         {
             // Min = 10^(n - 1)
             // Max = 10^(n) - 1
@@ -130,7 +130,7 @@ namespace Ocluse.LiquidSnow.Cryptography
             int min = Convert.ToInt32( Math.Pow( 10, ( length - 1 ) ) );
             int max = Convert.ToInt32( Math.Pow( 10, length ) - 1 );
 
-            return _random.Next(min, max).ToString(CultureInfo.InvariantCulture);
+            return Random(min, max).ToString(CultureInfo.InvariantCulture);
         }
 
         #endregion

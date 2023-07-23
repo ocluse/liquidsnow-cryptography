@@ -30,7 +30,7 @@
         Random,
 
         /// <summary>
-        /// Generates an ID based on randomly generated strings of numerics of specified length
+        /// Generates an ID based on randomly generated numeric string of specified length
         /// </summary>
         Numeric
     }
