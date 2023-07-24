@@ -27,6 +27,11 @@
         /// <summary>
         /// Generates an ID based on <see cref="System.Random"/>
         /// </summary>
-        Random
+        Random,
+
+        /// <summary>
+        /// Generates an ID based on randomly generated numeric string of specified length
+        /// </summary>
+        Numeric
     }
 }

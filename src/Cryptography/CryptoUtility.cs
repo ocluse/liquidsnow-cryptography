@@ -1,5 +1,6 @@
 ﻿using Ocluse.LiquidSnow.Core.Extensions;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -30,6 +31,7 @@ namespace Ocluse.LiquidSnow.Cryptography
                 IdKind.Guid => GenerateGuid(),
                 IdKind.Hash => GenerateHashedId(),
                 IdKind.Random => Random(length, true),
+                IdKind.Numeric => RandomNumeric(length),
                 _ =>throw new NotImplementedException("Unknown ID kind")
             };
         }
@@ -113,6 +115,22 @@ namespace Ocluse.LiquidSnow.Cryptography
             }
             return lowerCase ? builder.ToString().ToLower() : builder.ToString();
 
+        }
+
+        /// <summary>
+        /// Generates a random numeric string of specified <paramref name="length"/>
+        /// </summary>
+        /// <param name="length">The number of numerics to include in the string</param>
+        /// <returns>A randomly generated numeric string</returns>
+        public static string RandomNumeric(int length)
+        {
+            // Min = 10^(n - 1)
+            // Max = 10^(n) - 1
+            // Where n = length
+            int min = Convert.ToInt32( Math.Pow( 10, ( length - 1 ) ) );
+            int max = Convert.ToInt32( Math.Pow( 10, length ) - 1 );
+
+            return Random(min, max).ToString(CultureInfo.InvariantCulture);
         }
 
         #endregion

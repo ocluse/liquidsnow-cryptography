@@ -6,7 +6,7 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<Copyright>© Ocluse</Copyright>
-	<Version>0.0.2</Version>
+	<Version>0.0.3</Version>
 	  <PackageOutputPath>../../build/</PackageOutputPath>
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
