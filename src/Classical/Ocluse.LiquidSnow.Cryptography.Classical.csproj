@@ -14,7 +14,7 @@
 	<PackageTags>classical cipher;enigma machine;playfair;cipher;caesar;enigma;vigenere</PackageTags>
 	<RepositoryUrl>https://github.com/ocluse/liquidsnow-cryptography</RepositoryUrl>
 	<PackageIcon>logo.png</PackageIcon>
-	<Version>0.0.2</Version>
+	<Version>0.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
